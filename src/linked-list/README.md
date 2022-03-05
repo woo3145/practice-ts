@@ -25,13 +25,13 @@
 
 ##### 구현
 
-- [ ] size() - 리스트 안의 데이터 개수를 반환한다.
-- [ ] empty() - 리스트가 비어있다면 true를 반환한다.
-- [ ] valueAt(index) - index번째 위치의 value을반환한다. (가장 앞은 0부터 시작한다.)
-- [ ] pushFront(value) - 가장 앞에 value를 추가한다.
-- [ ] popFront() - 가장 앞에 있는 것을 제거하고, 그 value를 반환한다.
-- [ ] pushBack(value) - 가장 끝에 value을 추가한다.
-- [ ] popBack() - 가장 끝에 있는 것을 제거하고, 그 value를 반환한다.
+- [x] size() - 리스트 안의 데이터 개수를 반환한다.
+- [x] empty() - 리스트가 비어있다면 true를 반환한다.
+- [x] valueAt(index) - index번째 위치의 value을반환한다. (가장 앞은 0부터 시작한다.)
+- [x] pushFront(value) - 가장 앞에 value를 추가한다.
+- [x] popFront() - 가장 앞에 있는 것을 제거하고, 그 value를 반환한다.
+- [x] pushBack(value) - 가장 끝에 value을 추가한다.
+- [x] popBack() - 가장 끝에 있는 것을 제거하고, 그 value를 반환한다.
 - [ ] front() - 가장 앞에 있는 것의 value를 가져온다.
 - [ ] back() - 가장 끝에 있는 것의 value를 가져온다.
 - [ ] insert(index, value) - index번째 위치에 value를 추가한다. 즉, index번째에 새로 추가된 것이 기존의 index번째에 있던 것을 가리킨다.

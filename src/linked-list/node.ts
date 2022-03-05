@@ -11,7 +11,7 @@ export class Node<T> {
   getNext() {
     return this.#next;
   }
-  setNext(data: T) {
-    this.#next = new Node(data);
+  setNext(node: Node<T> | null) {
+    this.#next = node;
   }
 }
