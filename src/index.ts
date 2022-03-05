@@ -1,3 +1,3 @@
-const hello: string = "hello";
+import linkedListTest from "./linked-list/main";
 
-console.log(hello);
+linkedListTest();
