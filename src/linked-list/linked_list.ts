@@ -218,6 +218,7 @@ class LinkedList<T> implements ILinkedList<T> {
 
     while (current) {
       if (current?.getData() === value) {
+        this.#size -= 1;
         if (prev) {
           prev.setNext(current.getNext());
         } else {

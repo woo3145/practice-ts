@@ -24,4 +24,15 @@ describe("linked List Test", () => {
     expect(linkedList.popBack()).toBe(3);
     expect(linkedList.size()).toBe(3);
   });
+
+  test("search", () => {
+    expect(linkedList.valueAt(0)).toBe(1);
+    expect(linkedList.valueAt(99)).toBe(null);
+  });
+
+  test("remove", () => {
+    linkedList.removeValue(2);
+    console.log(linkedList.getAll());
+    expect(linkedList.size()).toBe(2);
+  });
 });
