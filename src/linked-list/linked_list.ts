@@ -85,10 +85,10 @@ class LinkedList<T> implements ILinkedList<T> {
       return;
     }
 
-    while (current?.getNext()) {
+    while (current && current.getNext()) {
       current = current.getNext();
     }
-    current?.setNext(node);
+    current && current.setNext(node);
   }
 
   popBack(): T | null {
@@ -103,7 +103,7 @@ class LinkedList<T> implements ILinkedList<T> {
       current = current.getNext();
     }
     if (prev) {
-      prev?.setNext(null);
+      prev.setNext(null);
     } else {
       this.#head = null;
     }
@@ -150,8 +150,8 @@ class LinkedList<T> implements ILinkedList<T> {
 
     if (index >= this.size()) {
       // 마지막에 추가
-      if (!current) {
-        prev?.setNext(node);
+      if (!current && prev) {
+        prev.setNext(node);
       }
     } else {
       if (prev) {
@@ -168,21 +168,21 @@ class LinkedList<T> implements ILinkedList<T> {
     let current = this.#head;
     let prev: Node<T> | null = null;
     let count = 0;
-    if (!current) {
+    if (!current || index >= this.size()) {
       return;
     }
     // index번 다음데이터로 이동(없으면 그대로)
     while (count < index) {
       ++count;
-      if (current?.getNext()) {
+      if (current && current.getNext()) {
         prev = current;
         current = current.getNext();
       }
     }
     // 다음 데이터가 있으면 이전 노드나 헤드뒤에 index다음데이터 연결
-    if (current?.getNext()) {
-      if (prev) {
-        prev.setNext(current?.getNext());
+    if (current && current.getNext()) {
+      if (prev && current) {
+        prev.setNext(current.getNext());
       } else {
         this.#head = current.getNext();
       }
@@ -216,7 +216,7 @@ class LinkedList<T> implements ILinkedList<T> {
     let prev: Node<T> | null = null;
 
     while (current) {
-      if (current?.getData() === value) {
+      if (current.getData() === value) {
         this.#size -= 1;
         if (prev) {
           prev.setNext(current.getNext());
