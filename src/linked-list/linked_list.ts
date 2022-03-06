@@ -135,6 +135,8 @@ class LinkedList<T> implements ILinkedList<T> {
     let prev: Node<T> | null = null;
     let count = 0;
 
+    this.#size += 1;
+
     if (!this.size()) {
       this.#head = node;
       return;

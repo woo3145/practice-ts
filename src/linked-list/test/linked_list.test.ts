@@ -16,12 +16,12 @@ describe("linked List Test", () => {
     expect(linkedList.size()).toBe(4);
     linkedList.insert(2, 9);
     expect(linkedList.valueAt(2)).toBe(9);
+    expect(linkedList.size()).toBe(5);
   });
 
   test("pop Method", () => {
     expect(linkedList.popFront()).toBe(4);
     expect(linkedList.popBack()).toBe(3);
-    console.log(linkedList.getAll());
-    expect(linkedList.size()).toBe(3); // 에러발생
+    expect(linkedList.size()).toBe(3);
   });
 });
