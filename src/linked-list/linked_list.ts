@@ -168,7 +168,10 @@ class LinkedList<T> implements ILinkedList<T> {
     let current = this.#head;
     let prev: Node<T> | null = null;
     let count = 0;
-    if (!current || index >= this.size()) {
+    if (!current) {
+      return;
+    }
+    if (index !== 0 && index >= this.size()) {
       return;
     }
     // index번 다음데이터로 이동(없으면 그대로)
@@ -180,15 +183,15 @@ class LinkedList<T> implements ILinkedList<T> {
       }
     }
     // 다음 데이터가 있으면 이전 노드나 헤드뒤에 index다음데이터 연결
-    if (current && current.getNext()) {
-      if (prev && current) {
-        prev.setNext(current.getNext());
+    if (current) {
+      if (current.getNext()) {
+        prev
+          ? prev.setNext(current.getNext())
+          : this.setHead(current.getNext());
       } else {
-        this.#head = current.getNext();
+        // 다음 데이터가 없으면 마지막이므로 이전 노드의 다음데이터 제거
+        prev ? prev.setNext(null) : this.setHead(null);
       }
-      // 다음 데이터가 없으면 마지막이므로 이전 노드의 다음데이터 제거
-    } else {
-      prev?.setNext(null);
     }
 
     this.#size -= 1;
