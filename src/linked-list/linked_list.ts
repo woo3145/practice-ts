@@ -135,12 +135,13 @@ class LinkedList<T> implements ILinkedList<T> {
     let prev: Node<T> | null = null;
     let count = 0;
 
-    this.#size += 1;
-
     if (!this.size()) {
       this.#head = node;
+      this.#size += 1;
       return;
     }
+
+    this.#size += 1;
     while (count < index && current) {
       ++count;
       prev = current;
@@ -149,9 +150,7 @@ class LinkedList<T> implements ILinkedList<T> {
 
     if (index >= this.size()) {
       // 마지막에 추가
-      if (current) {
-        current?.setNext(node);
-      } else {
+      if (!current) {
         prev?.setNext(node);
       }
     } else {
