@@ -48,6 +48,14 @@ const linkedListTest = () => {
   console.log("처음 발견되는 3 삭제");
   linkedList.removeValue(3);
   console.log("배열 확인", linkedList.getAll());
+
+  console.log("0번째에 9추가");
+  linkedList.insert(0, 9);
+  console.log("배열 확인", linkedList.getAll());
+
+  console.log("3번째에 999추가");
+  linkedList.insert(3, 999);
+  console.log("배열 확인", linkedList.getAll());
 };
 
 export default linkedListTest;

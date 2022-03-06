@@ -129,7 +129,39 @@ class LinkedList<T> implements ILinkedList<T> {
     return current ? current.getData() : null;
   }
 
-  insert(index: number, value: T): void {}
+  insert(index: number, value: T): void {
+    const node = new Node(value);
+    let current = this.#head;
+    let prev: Node<T> | null = null;
+    let count = 0;
+
+    if (!this.size()) {
+      this.#head = node;
+      return;
+    }
+    while (count < index && current) {
+      ++count;
+      prev = current;
+      current = current.getNext();
+    }
+
+    if (index >= this.size()) {
+      // 마지막에 추가
+      if (current) {
+        current?.setNext(node);
+      } else {
+        prev?.setNext(node);
+      }
+    } else {
+      if (prev) {
+        prev.setNext(node);
+        node.setNext(current);
+      } else {
+        node.setNext(current);
+        this.#head = node;
+      }
+    }
+  }
 
   erase(index: number) {
     let current = this.#head;

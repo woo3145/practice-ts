@@ -34,7 +34,7 @@
 - [x] popBack() - 가장 끝에 있는 것을 제거하고, 그 value를 반환한다.
 - [x] front() - 가장 앞에 있는 것의 value를 가져온다.
 - [x] back() - 가장 끝에 있는 것의 value를 가져온다.
-- [ ] insert(index, value) - index번째 위치에 value를 추가한다. 즉, index번째에 새로 추가된 것이 기존의 index번째에 있던 것을 가리킨다.
+- [x] insert(index, value) - index번째 위치에 value를 추가한다. 즉, index번째에 새로 추가된 것이 기존의 index번째에 있던 것을 가리킨다.
 - [x] erase(index) - index번째에 있는 노드를 삭제한다.
 - [x] reverse() - 리스트를 뒤집는다.
 - [x] removeValue(value) - value와 같은 값을 가지는 첫 번째 노드를 제거한다.
