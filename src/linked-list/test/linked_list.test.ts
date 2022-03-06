@@ -32,7 +32,19 @@ describe("linked List Test", () => {
 
   test("remove", () => {
     linkedList.removeValue(2);
-    console.log(linkedList.getAll());
     expect(linkedList.size()).toBe(2);
+  });
+
+  test("reverse", () => {
+    expect(linkedList.getAll()).toBe("[ 1 -> 9 ]");
+    linkedList.reverse();
+    expect(linkedList.getAll()).toBe("[ 9 -> 1 ]");
+  });
+
+  test("empty", () => {
+    expect(linkedList.empty()).toBe(false);
+    linkedList.popBack();
+    linkedList.popBack();
+    expect(linkedList.empty()).toBe(true);
   });
 });
