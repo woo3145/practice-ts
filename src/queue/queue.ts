@@ -36,7 +36,7 @@ class Queue<T> {
 
   dequeue() {
     if (!this.size()) {
-      return;
+      return null;
     }
     const head = this.#head;
     this.#head = head?.getNext() || null;
