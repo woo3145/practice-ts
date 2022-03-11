@@ -18,5 +18,5 @@
 
 ##### 구현
 
-- [ ] enqueue
-- [ ] dequeue
+- [x] enqueue
+- [x] dequeue
