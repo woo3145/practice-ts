@@ -16,4 +16,22 @@ export const binarySearch = (arr: number[], value: number) => {
   return { index: -1, value: null };
 };
 
-export const binarySearchRecursive = () => {};
+export const binarySearchRecursive = (
+  arr: number[],
+  value: number,
+  low: number,
+  high: number
+): { index: number; value: number | null } => {
+  if (low > high) {
+    return { index: -1, value: null };
+  }
+
+  const mid = Math.floor((low + high) / 2);
+  if (arr[mid] === value) {
+    return { index: mid, value };
+  } else if (arr[mid] < value) {
+    return binarySearchRecursive(arr, value, mid + 1, high);
+  } else {
+    return binarySearchRecursive(arr, value, low, mid - 1);
+  }
+};
