@@ -15,7 +15,7 @@ class HashObject {
   }
 }
 
-class HashTable {
+export class HashTable {
   #size;
   #table: HashObject[] | null[];
 
@@ -60,4 +60,51 @@ class HashTable {
   }
 }
 
-export default HashTable;
+class Node {
+  value;
+  next: Node | null;
+  constructor(value: HashObject) {
+    this.value = value;
+    this.next = null;
+  }
+}
+export class HashTable2 {
+  #size;
+  #table: Node[] | null[];
+
+  constructor() {
+    this.#size = 0;
+    this.#table = [];
+  }
+
+  set(value: string) {
+    let key = hash(value, 7);
+    const data = new HashObject(key, value);
+    const node = new Node(data);
+    if (!this.#table[key]) {
+      this.#table[key] = node;
+    } else {
+      let current = this.#table[key];
+      while (current?.next) {
+        current = current.next;
+      }
+      current && (current.next = node);
+    }
+    this.#size += 1;
+  }
+  get(value: string) {
+    const key = hash(value, 7);
+    let current = this.#table[key];
+
+    while (current) {
+      if (current.value.value === value) {
+        return current.value;
+      }
+      current = current.next;
+    }
+  }
+
+  size() {
+    return this.#size;
+  }
+}

@@ -34,5 +34,5 @@
 
 #### 구현
 
-- [ ] Linear Probing 방식
-- [ ] Separate Chaining 방식
+- [x] Linear Probing 방식
+- [x] Separate Chaining 방식
