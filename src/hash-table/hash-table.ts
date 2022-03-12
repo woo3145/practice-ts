@@ -71,6 +71,7 @@ class Node {
 export class HashTable2 {
   #size;
   #table: Node[] | null[];
+  #hashKey = 7;
 
   constructor() {
     this.#size = 0;
@@ -78,7 +79,7 @@ export class HashTable2 {
   }
 
   set(value: string) {
-    let key = hash(value, 7);
+    let key = hash(value, this.#hashKey);
     const data = new HashObject(key, value);
     const node = new Node(data);
     if (!this.#table[key]) {
@@ -93,7 +94,7 @@ export class HashTable2 {
     this.#size += 1;
   }
   get(value: string) {
-    const key = hash(value, 7);
+    const key = hash(value, this.#hashKey);
     let current = this.#table[key];
 
     while (current) {
@@ -106,5 +107,29 @@ export class HashTable2 {
 
   size() {
     return this.#size;
+  }
+
+  remove(value: string) {
+    const key = hash(value, this.#hashKey);
+    let current = this.#table[key];
+    let prev = null;
+    while (current) {
+      if (current.value.value === value) {
+        break;
+      }
+      prev = current;
+      current = current.next;
+    }
+    if (!current) {
+      console.log("값이 존재하지 않습니다.");
+      return;
+    }
+    this.#size -= 1;
+    if (prev) {
+      prev.next = current.next;
+    } else {
+      this.#table[key] = current.next;
+    }
+    console.log(`${value}를 삭제하였습니다.`);
   }
 }

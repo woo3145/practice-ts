@@ -19,6 +19,7 @@ const HashTableTest = () => {
   hashTable.set("14");
   hashTable.set("15");
   hashTable.set("16");
+  hashTable.remove("1");
   console.log(hashTable.get("1"));
   console.log(hashTable.get("2"));
   console.log(hashTable.get("3"));
