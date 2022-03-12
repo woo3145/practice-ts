@@ -58,6 +58,13 @@ export class HashTable {
       }
     }
   }
+  remove(value: string) {
+    const node = this.get(value);
+    if (node?.key) {
+      this.#table[node.key] = new HashObject(node.key, "-1");
+      console.log(`${value}를 삭제하였습니다.`);
+    }
+  }
 }
 
 class Node {
