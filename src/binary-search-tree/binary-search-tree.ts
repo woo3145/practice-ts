@@ -56,6 +56,47 @@ class BinarySearchTree {
     }
     return ok;
   }
+
+  get_min() {
+    let current = this.root;
+    if (!current) {
+      console.log("트리에 노드가 존재하지 않습니다.");
+      return;
+    }
+    while (current.left) {
+      current = current.left;
+    }
+
+    return current.value;
+  }
+
+  get_max() {
+    let current = this.root;
+    if (!current) {
+      console.log("트리에 노드가 존재하지 않습니다.");
+      return;
+    }
+    while (current.right) {
+      current = current.right;
+    }
+
+    return current.value;
+  }
+
+  get_successor(node: Node | null) {
+    let current = node?.right;
+
+    if (!current) {
+      console.log("오른쪽 서브트리가 존재하지 않습니다.");
+      return;
+    }
+
+    while (current.left) {
+      current = current.left;
+    }
+
+    return current.value;
+  }
 }
 
 export default BinarySearchTree;
