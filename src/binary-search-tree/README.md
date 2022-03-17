@@ -32,6 +32,6 @@
 - [x] is_value // 값이 트리에 존재하는지 확인
 - [x] get_min // 트리의 가장 작은 값 반환
 - [x] get_max // 트리의 가장 큰 값 반환
-- [ ] delete_value
+- [x] delete_value
 - [ ] delete_tree // 트리를 삭제
 - [x] get_successor 현재 노드의 다음으로 큰 값을 가져온다.

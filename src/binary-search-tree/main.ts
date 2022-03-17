@@ -7,10 +7,17 @@ const BinarySearchTreeTest = () => {
   binarySearchTree.insert(100);
   binarySearchTree.insert(50);
   binarySearchTree.insert(30);
-  console.log(binarySearchTree.is_value(5));
-  console.log(binarySearchTree.get_min());
-  console.log(binarySearchTree.get_max());
-  console.log(binarySearchTree.get_successor(binarySearchTree.root));
+  binarySearchTree.insert(60);
+  console.log(
+    "successor : ",
+    binarySearchTree.get_successor(binarySearchTree.root)
+  );
+  binarySearchTree.delete_value(100);
+  console.log(
+    "successor : ",
+    binarySearchTree.get_successor(binarySearchTree.root)
+  );
+  console.log(binarySearchTree.root);
 };
 
 export default BinarySearchTreeTest;

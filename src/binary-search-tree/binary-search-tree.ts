@@ -97,6 +97,50 @@ class BinarySearchTree {
 
     return current.value;
   }
+
+  delete_value(value: number) {
+    let current = this.root;
+    let prev = current;
+    while (current) {
+      if (current.value === value) {
+        break;
+      }
+      prev = current;
+      if (current.value < value) {
+        current = current.right;
+      } else {
+        current = current.left;
+      }
+    }
+
+    if (!current) {
+      console.log("삭제할 데이터가 없습니다.");
+      return;
+    }
+
+    // 자식이 없음
+    if (!current.left && !current.right) {
+      if (prev?.left?.value === value) {
+        prev.left = null;
+      } else if (prev?.right?.value === value) {
+        prev.right = null;
+      }
+      // 자식이 둘
+    } else if (current.left && current.right) {
+      const successor = this.get_successor(current);
+      successor && this.delete_value(successor);
+      successor && (current.value = successor);
+      // 자식이 하나
+    } else {
+      if (current.left) {
+        prev?.left?.value === value && (prev.left = current.left);
+        prev?.right?.value === value && (prev.right = current.left);
+      } else if (current.right) {
+        prev?.left?.value === value && (prev.left = current.right);
+        prev?.right?.value === value && (prev.right = current.right);
+      }
+    }
+  }
 }
 
 export default BinarySearchTree;
