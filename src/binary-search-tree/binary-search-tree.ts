@@ -141,6 +141,21 @@ class BinarySearchTree {
       }
     }
   }
+
+  print_values(node: Node | null = this.root) {
+    if (node) {
+      if (node.left) this.print_values(node.left);
+      console.log(node.value);
+      if (node.right) this.print_values(node.right);
+    }
+  }
+  print_values_reverse(node: Node | null = this.root) {
+    if (node) {
+      if (node.right) this.print_values_reverse(node.right);
+      console.log(node.value);
+      if (node.left) this.print_values_reverse(node.left);
+    }
+  }
 }
 
 export default BinarySearchTree;

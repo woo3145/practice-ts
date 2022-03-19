@@ -17,7 +17,8 @@ const BinarySearchTreeTest = () => {
     "successor : ",
     binarySearchTree.get_successor(binarySearchTree.root)
   );
-  console.log(binarySearchTree.root);
+  binarySearchTree.print_values();
+  binarySearchTree.print_values_reverse();
 };
 
 export default BinarySearchTreeTest;
